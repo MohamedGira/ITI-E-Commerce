@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <title>Document</title>
+</head>
+
+<body>
+    <header  class="flex justify-between items-center px-40 py-8 border-b-2 pb-8 fixed w-100 top-0 left-0 right-0 bg-white z-10">
+        <ul class="flex gap-12 items-center">
+            <li>
+                <h1 class="font-black text-3xl">Simple</h1>
+            </li>
+            <li class="">Products</li>
+            <li class="">Orders</li>
+            <li class="">Profile</li>
+        </ul>
+        <form  class="w-5/12 p-0">
+            <input type="text" placeholder="Search..." class="focus:outline-orange-700 w-full p-1" name="search">
+        </form>
+        <div class="flex gap-4">
+            <img class="w-10" src="./ecommerce-product-page-main/images/icon-cart.svg">
+            <img class="rounded w-10" src="./ecommerce-product-page-main/images/image-avatar.png">
+        </div>
+    </header>
+    <main class="flex flex-col w-full mt-48 gap-12">
+        <h1 class="uppercase text-center text-xl text-orange-700 kumbh">Category | Search Query</h1>
+        <div class="p-10 bg-gray-100">
+            <!-- <h1 class="uppercase text-center font-serif text-6xl -translate-y-16">Sub Category</h1> -->
+            <!-- <header class="px-40 border-b-2 mb-8 w-100 text-lg">
+                <form class="flex justify-between" id="filter">
+                    <select name="Brand" id="brand" class="p-2 bg-transparent">
+                        <option value="" selected disabled class="hidden">Brand</option>
+                        <option value="Zara">Zara</option>
+                        <option value="Defacto">Tara</option>
+                    </select>
+                    <div class="flex gap-12 items-center ">
+                        <select name="sortby" id="sort" class="p-2 bg-transparent">
+                            <option value="" selected disabled class="hidden">Sort By</option>
+                            <option value="name">Name</option>
+                            <option value="price">Price</option>
+                        </select>
+                        <select name="order" id="order" class="p-2 bg-transparent">
+                            <option value="" disabled  selected class="hidden">Order</option>
+                            <option value="ascending" >Ascending</option>
+                            <option value="descending">Descending</option>
+                        </select>
+                    </div>
+                </form>
+            </header> -->
+
+            <ul class="flex flex-start justify-evenly gap-12 flex-wrap ">
+                <li>
+                    <a href="">
+                        <div class="card w-80 aspect-square bg-gray-100">
+                            <img class="border-[16px] border-white"
+                                src="./ecommerce-product-page-main/images/image-product-1.jpg" alt="">
+                            <h1 class="text-gray-500 text-lg font-serif font-thin">Product Name</h1>
+                            <p class="text-sm text-gray-400">seller</p>
+                            <p class="text-sm text-gray-500">$300</p>
+                        </div>
+                    </a>
+                </li><li>
+                    <a href="">
+                        <div class="card w-80 aspect-square bg-gray-100">
+                            <img class="border-[16px] border-white"
+                                src="./ecommerce-product-page-main/images/image-product-1.jpg" alt="">
+                            <h1 class="text-gray-500 text-lg font-serif font-thin">Product Name</h1>
+                            <p class="text-sm text-gray-400">seller</p>
+                            <p class="text-sm text-gray-500">$300</p>
+                        </div>
+                    </a>
+                </li><li>
+                    <a href="">
+                        <div class="card w-80 aspect-square bg-gray-100">
+                            <img class="border-[16px] border-white"
+                                src="./ecommerce-product-page-main/images/image-product-1.jpg" alt="">
+                            <h1 class="text-gray-500 text-lg font-serif font-thin">Product Name</h1>
+                            <p class="text-sm text-gray-400">seller</p>
+                            <p class="text-sm text-gray-500">$300</p>
+                        </div>
+                    </a>
+                </li><li>
+                    <a href="">
+                        <div class="card w-80 aspect-square bg-gray-100">
+                            <img class="border-[16px] border-white"
+                                src="./ecommerce-product-page-main/images/image-product-1.jpg" alt="">
+                            <h1 class="text-gray-500 text-lg font-serif font-thin">Product Name</h1>
+                            <p class="text-sm text-gray-400">seller</p>
+                            <p class="text-sm text-gray-500">$300</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>

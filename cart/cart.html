@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./styles.css">
+
+    <title>Document</title>
+</head>
+
+<body class="h-screen">
+    <!-- <div class="flex items-center gap-4 w-full">
+        <img src="../ecommerce-product-page-main/images/image-product-1.jpg" class="w-56 items-center rounded-md" alt="">
+        <div class="flex gap-4 w-full justify-evenly">
+            <div>
+                <h1 class="text-2xl">Product Name</h1>
+                <p class="text-gray-400">detials</p>
+            </div>
+            <div class="flex gap-4 rounded-md bg-gray-100 px-3 items-center">
+                <button id="less"
+                    class="text-orange-400 font-black  transition-colors hover:bg-gray-200 rounded-full w-5  aspect-square">-</button>
+                <span id="count" class="font-black">1</span>
+                <button id="more"
+                    class="text-orange-400 font-black  transition-colors hover:bg-gray-200 rounded-full w-5  aspect-square">+</button>
+            </div>
+            <div>
+                price
+            </div>
+        </div>
+    </div> -->
+    <header class="flex justify-between  px-40 py-8 border-b-2 pb-8 fixed w-100 top-0 left-0 right-0 bg-white ">
+        <ul class="flex gap-12 items-center">
+            <li>
+                <h1 class="font-black text-3xl">Simple</h1>
+            </li>
+            <li class="">Products</li>
+            <li class="">Orders</li>
+            <li class="">Profile</li>
+        </ul>
+        <div class="flex gap-4">
+            <img class="w-10" src="../ecommerce-product-page-main/images/icon-cart.svg">
+            <img class="rounded w-10" src="../ecommerce-product-page-main/images/image-avatar.png">
+        </div>
+    </header>
+    <div class="grid grid-cols-2">
+        <div class="flex flex-col gap-12 w-full p-4 mt-40">
+            <div id="lst" class="flex flex-col gap-4 overflow-y-auto h-3/4 px-10" >
+            </div>
+            <hr>
+            <div class="flex justify-between">
+                <span class="text-2xl font-black">total</span>
+                <span class="text-2xl" id="total">$66</span>
+            </div>
+        </div>
+        <div class="flex flex-row p-20">
+            <button class="bg-orange-400 w-full text-center text-white p-5 mx-24 text-2xl rounded-md self-end">Checkout</button>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

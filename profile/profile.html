@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <header class="flex justify-between  px-40 py-8 border-b-2 pb-8 fixed w-100 top-0 left-0 right-0 bg-white ">
+        <ul class="flex gap-12 items-center">
+            <li>
+                <h1 class="font-black text-3xl">Simple</h1>
+            </li>
+            <li class="">Products</li>
+            <li class="">Orders</li>
+            <li class="">Profile</li>
+        </ul>
+        <div class="flex gap-4">
+            <img class="w-10" src="./ecommerce-product-page-main/images/icon-cart.svg">
+            <img class="rounded w-10" src="./ecommerce-product-page-main/images/image-avatar.png">
+        </div>
+    </header>
+    <div class="flex gap-24 mt-24">
+        <div class="flex flex-col w-1/4 text-center bg-gray-200 rounded-3xl items-center mt-48 mx-10 ">
+            <img id="profileImage" src="../ecommerce-product-page-main/images/image-avatar.png" alt=""
+                class="rounded-full w-1/2 -translate-y-1/2 border-white border-4 transition-all cursor-pointer object-cover	aspect-square">
+            <div id="data" class="-translate-y-1/2 flex flex-col gap-4">
+                <div>
+                    <h1 class="text-2xl text-grey-500">Mohamed Gira</h1>
+                </div>
+                <div>
+                    <h1 class="text-2xl text-grey-500">mohamedgira0901@gmail.com</h1>
+                </div>
+                <div>
+                    <h1 class="text-2xl text-grey-500">+201117230998</h1>
+                </div>
+            </div>
+            <form class="-translate-y-1/3 flex flex-col gap-4 w-10/12 hidden" id="editForm"
+                enctype="multipart/form-data">
+
+                <div>
+                    <input type="text"
+                        class=" rounded-md focus:outline-orange-600 w-full text-center text-2xl text-grey-500"
+                        value="Mohamed Gira" required />
+                </div>
+                <div>
+                    <input type="email"
+                        class=" rounded-md focus:outline-orange-600 w-full text-2xl text-grey-500 text-center"
+                        value="mohamedgira0901@gmail.com" required />
+                </div>
+                <div>
+                    <input type="tel"
+                        class=" rounded-md focus:outline-orange-600 w-full text-2xl text-grey-500 text-center"
+                        value="+201117230998" required />
+                </div>
+                <div>
+                    <input id="imageInput" type="file" accept="image/png, image/jpeg" class="hidden"
+                        value="+201117230998" required />
+                </div>
+                <div class="flex justify-between">
+                    <input
+                        class="bg-orange-400 py-1 px-5 text-white rounded-md font-bold  hover:text-orange-400 hover:bg-white transition-colors"
+                        type="reset" name="reset" id="reset">
+                    <input
+                        class="bg-orange-400 py-1 px-5 text-white rounded-md font-bold  hover:text-orange-400 hover:bg-white transition-colors"
+                        type="submit" name="edit" id="edit">
+                    <button
+                        class="bg-orange-400 py-1 px-5 text-white rounded-md font-bold hover:text-orange-400 hover:bg-white transition-colors"
+                        id="cancel">Cancel</button>
+                </div>
+            </form>
+            <i class='bx bx-edit text-5xl text-gray-500 text-center self-end p-3 cursor-pointer ' id="showForm"></i>
+        </div>
+        <div class="w-7/12 mt-24 border-l-2 border-grey-600 pl-3 flex flex-col gap-8 w-10">
+            <h1 class=" text-orange-400 text-5xl">My Packages</h1>
+            <div class="flex flex-col gap-4">
+                <div class=" bg-gray-100 flex justify-between p-10 items-center">
+                    <div class="flex justify-evenly flex-col">
+                        <h2>Package 1</h2>
+                        <h2>Ordered At: 1 sep 2023</h2>
+                        <p>Status: Pending</p>
+                    </div>
+                    <div class="cursor-pointer" id="detailsBtn-1" onclick="document.getElementById(`detailsList-1`).classList.toggle('hidden')">
+                        Details 
+                    </div>
+                </div>
+                <div id="detailsList-1">
+                    <a href="">
+                        <div class="flex gap-4 w-full justify-evenly pb-2 border-b-2">
+                            <img src="../ecommerce-product-page-main/images/image-product-1.jpg"
+                                class="w-12 items-center rounded-md" alt="">
+                            <h1 class="text-xl">Product Name</h1>
+                            <p>count</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <script src="script.js"></script>
+</body>
+
+</html>

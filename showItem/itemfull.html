@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <header class="flex justify-between  px-40 py-8 border-b-2 pb-8 fixed w-100 top-0 left-0 right-0 bg-white ">
+        <ul class="flex gap-12 items-center">
+            <li>
+                <h1 class="font-black text-3xl">Simple</h1>
+            </li>
+            <li class="">Products</li>
+            <li class="">Orders</li>
+            <li class="">Profile</li>
+        </ul>
+        <div class="flex gap-4">
+            <img class="w-10" src="./ecommerce-product-page-main/images/icon-cart.svg">
+            <img class="rounded w-10" src="./ecommerce-product-page-main/images/image-avatar.png">
+        </div>
+    </header>
+    <main class="my-40">
+        <div class="w-8/12 flex gap-12 items-center mx-auto">
+            <!-- perview -->
+            <div class="w-1/2 flex items-center gap-2">
+                <button id="prevBtn"
+                    class="text-gray-900 bg-white border border-gray-300 focus:outline-none  hover:bg-gray-100 rounded-full  w-12 p-2">&lt;</button>
+                <div class="w-full flex flex-col gap-6">
+                    <div>
+                        <img id="current-image" class="rounded-xl w-full"
+                            src="./ecommerce-product-page-main/images/image-product-1.jpg" alt="">
+                    </div>
+                    <div>
+                        <ul id="images" class="flex  gap-2 justify-between menu">
+                            <li class="min-w-[20%] w-1/5"><img class=" max-w-full rounded-md"
+                                    src="./ecommerce-product-page-main/images/image-product-1.jpg" alt="">
+                            </li>
+                            <li class="min-w-[20%] w-1/5"><img class=" max-w-full rounded-md"
+                                    src="./ecommerce-product-page-main/images/image-product-2.jpg" alt="">
+                            </li>
+                            <li class="min-w-[20%] w-1/5"><img class=" max-w-full rounded-md"
+                                    src="./ecommerce-product-page-main/images/image-product-3.jpg" alt="">
+                            </li>
+                            <li class="min-w-[20%] w-1/5"><img class=" max-w-full rounded-md"
+                                    src="./ecommerce-product-page-main/images/image-product-4.jpg" alt="">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <button type="button" id="nextBtn"
+                    class="text-gray-900 bg-white border border-gray-300 focus:outline-none  hover:bg-gray-100 rounded-full  w-12 p-2">
+                    &gt;
+                </button>
+
+            </div>
+            <!-- deatils -->
+            <div class="flex flex-col gap-3 w-1/2">
+                <p class="text-orange-400 uppercase">company NAME</p>
+                <h1 class="font-black text-4xl">product name</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, sequi nihil! Id fugiat explicabo quo
+                    optio ad
+                    maxime
+                    hic, aperiam eveniet qui eos nulla, aut accusamus perspiciatis. Ullam, sapiente tempore?</p>
+                <div>
+                    <p class="font-black text-2xl">$125 <span
+                            class="bg-orange-100 text-orange-400 rounded-md font-normal text-sm px-1"> 50%</span></p>
+                    <p class="line-through text-grey-300 text-sm">$250</p>
+                </div>
+
+                <div class="flex w-full gap-2">
+                    <div class="flex justify-between w-5/12 rounded-md bg-gray-100 px-2 py-2">
+                        <button id="less"
+                            class="text-orange-400 font-black  transition-colors hover:bg-gray-200 rounded-full w-5  aspect-square">-</button>
+                        <span id="count" class="font-black">1</span>
+                        <button
+                            id="more"
+                            class="text-orange-400 font-black  transition-colors hover:bg-gray-200 rounded-full w-5  aspect-square">+</button>
+                    </div>
+                    <button class="transition-colors bg-orange-400 w-full text-center text-white rounded-md
+                    hover:bg-white hover:text-orange-400"><i class='bx bxs-cart-alt'></i> Add
+                        to cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="./script.js"></script>
+
+</body>
+
+</html>

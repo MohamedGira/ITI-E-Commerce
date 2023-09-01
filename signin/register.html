@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body>
+    <div class="flex flex-col text-sm">
+        <header class="flex justify-between px-10 py-5">
+            <h1 class="font-black text-3xl">Simple</h1>
+            <a href="mailto:mohamedgira0901@gmail.com">Contant us</a>
+        </header>
+        <form class=" mt-16 flex flex-col w-96 gap-4 self-center items-center">
+            <h1 class="font-black text-3xl">Create an Account</h1>
+            <p class="text-left w-full">Already have an account? <a class="font-black"href="">Sign in</a></p>
+            <div class="w-full"> 
+                <label for="firstName" class="text-grey-700">First Name</label>
+                <br>
+                <input class="w-full border rounded-md p-1 focus:border-orange-400 focus:outline-none" type="text" name="firstName" id="firstName" placeholder="Mohamed">
+            </div>
+            <div class="w-full"> 
+                <label for="lastName" class="text-grey-700">Last Name</label>
+                <br>
+                <input class="w-full border rounded-md p-1 focus:border-orange-400 focus:outline-none" type="text" name="lastName" id="lastName" placeholder="Gira">
+            </div>
+            
+            <div class="w-full"> 
+                <label for="phoneNumber" class="text-grey-700">phoneNumber</label>
+                <br>
+                <input class="w-full border rounded-md p-1 focus:border-orange-400 focus:outline-none" type="tel" name="phoneNumber" id="phoneNumber" placeholder="+201117230998">
+            </div>
+            <div class="w-full"> 
+                <label for="email" class="text-grey-700">Email</label>
+                <br>
+                <input class="w-full border rounded-md p-1 focus:border-orange-400 focus:outline-none" type="email" name="email" id="email" placeholder="Enter your Email">
+            </div>
+            <div class="w-full">
+                <label for="password" class="text-grey-700">Password</label>
+                <br>
+                <input class="w-full border rounded-md p-1 focus:border-orange-400 focus:outline-none" type="password" name="password" id="password" placeholder="••••••••">
+            </div>
+            <div class="w-full">
+                <label for="confirmPassword" class="text-grey-700">Confirm Password</label>
+                <br>
+                <input class="w-full border rounded-md p-1 focus:border-orange-400 focus:outline-none" type="password" name="confirmPassword" id="confirmPassword" placeholder="••••••••">
+            </div>
+            <div class=" w-full text-right text-xs">
+                <a>forgot password?</a>
+            </div>
+            <input type="submit" class="bg-orange-400 text-white w-full py-1 rounded-md hover:bg-orange-500 transition-colors" value="Register" name="register">
+        </form>
+    </div>
+</body>
+
+</html>

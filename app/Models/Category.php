@@ -14,7 +14,7 @@ class Category extends Model
 
     use HasUuids;
     use HasFactory;
-
+    protected $guarded= [];
     function images(){
         return $this->hasMany(Image::class,'item_id');
     }

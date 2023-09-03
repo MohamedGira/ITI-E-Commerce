@@ -11,6 +11,7 @@ class ProductCategory extends Model
     use HasFactory;
     use HasUuids;
 
+    protected $guarded= [];
 
     function product(){
         return $this->belongsTo(Product::class);

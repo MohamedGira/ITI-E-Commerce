@@ -19,7 +19,7 @@
 
 <body>
     <header class="flex justify-between px-10 py-5">
-        <a href="{{route('login')}}"><h1 class="font-black text-3xl">Simple</h1></a>
+        <a href="{{route('home')}}"><h1 class="font-black text-3xl">Simple</h1></a>
         <a href="mailto:mohamedgira0901@gmail.com">Contant us</a>
     </header>
     {{ $slot }}

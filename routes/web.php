@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -42,7 +43,9 @@ Route::resource('categories', CategoryController::class)->parameters([
 Route::resource('product-categories', ProductCategoryController::class)->parameters([
     'product-categories' => 'id'
 ]);
-
+Route::get('home', [HomeController::class, 'index'])->name('home');
+Route::get('results', [HomeController::class, 'search'])->name('results');
+Route::get('home/categories/{id}', [HomeController::class, 'viewCategory'])->name('category.details');
 
 
 require __DIR__.'/auth.php';

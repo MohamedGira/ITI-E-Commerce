@@ -11,78 +11,52 @@ class ProductController extends Controller
     *
     * @return \Illuminate\Http\Response
     */
-   public function index()
+   public function index(Request $request)
    {
-       //
-       dd();
+        $params=$request->all();
+        if(empty($params))
+            return ControllerFactory::getAll(Product::class,'product.index')();
+        return ControllerFactory::getWhere(Product::class,'product.index')($params);
    }
 
-   /**
-    * Show the form for creating a new resource.
-    *
-    * @return \Illuminate\Http\Response
-    */
    public function create()
    {
        //
    }
 
-   /**
-    * Store a newly created resource in storage.
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @return \Illuminate\Http\Response
-    */
    public function store(Request $request)
-   {
-        
-        return response()->json(['message' => 'Created successfuly'], 201);
-        return ControllerFactory::createOne(Product::class)($request);
+   {    
+       return ControllerFactory::createOne(Product::class,
+       [
+        'name'=>'required',
+        'original_price'=>'required',
+        'brand'=>'required',
+       ],'product.create')($request);
    }
 
-   /**
-    * Display the specified resource.
-    *
-    * @param  \App\Models\Product  $product
-    * @return \Illuminate\Http\Response
-    */
-   public function show(Product $product)
+   public function show($id)
    {
-       //
+       return ControllerFactory::getOne(Product::class,'product.show')($id);
    }
 
-   /**
-    * Show the form for editing the specified resource.
-    *
-    * @param  \App\Models\Product  $product
-    * @return \Illuminate\Http\Response
-    */
-   public function edit(Product $product)
-   {
-       //
-   }
-
-   /**
-    * Update the specified resource in storage.
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @param  \App\Models\Product  $product
-    * @return \Illuminate\Http\Response
-    */
-   public function update(Request $request, Product $product)
-   {
-       //
-   }
-
-   /**
-    * Remove the specified resource from storage.
-    *
-    * @param  \App\Models\Product  $product
-    * @return \Illuminate\Http\Response
-    */
-   public function destroy(Product $product)
+  
+   public function edit($id,Request $request)
    {
  
-       //
+   }
+
+  
+   public function update(Request $request, $id)
+   {
+    return ControllerFactory::updateOne(Product::class,
+    [
+     
+    ])($id,$request);
+   }
+
+   public function destroy($id)
+   {
+ 
+       return ControllerFactory::deleteOne(Product::class)($id);
    }
 }

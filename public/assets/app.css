@@ -1,0 +1,38 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;500&display=swap");
+.kumbh {
+  font-family: 'Kumbh Sans';
+}
+.menu {
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+}
+
+.menu-vert {
+    overflow-y: scroll;
+    scroll-snap-type: y proximity;
+}
+
+*::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+*::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 1rem;
+}
+*::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    background: #bbbbbb;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: #999;
+    border-radius: 1rem;
+}
+
+.active-image {
+    transition-duration: 150ms;
+    opacity: 40%;
+    border: 2px solid #ea580c;
+}

@@ -27,6 +27,7 @@ class ProductController extends Controller
         'name'=>'required',
         'original_price'=>'required',
         'brand'=>'required',
+        'banner'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
        ],'product.create')($request);
    }
 

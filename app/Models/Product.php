@@ -13,7 +13,7 @@ class Product extends Model
     use HasFactory;
     protected  $guarded=[];
 
-    function price(){
+    function getPriceAttribute(){
         return $this->original_price*(1-$this->discount/100);
     }
     function images(){

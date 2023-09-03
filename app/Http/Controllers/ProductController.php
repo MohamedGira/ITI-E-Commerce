@@ -6,11 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 
 class ProductController extends Controller
-{    /**
-    * Display a listing of the resource.
-    *
-    * @return \Illuminate\Http\Response
-    */
+{
    public function index(Request $request)
    {
         $params=$request->all();
@@ -19,9 +15,9 @@ class ProductController extends Controller
         return ControllerFactory::getWhere(Product::class,'product.index')($params);
    }
 
-   public function create()
+   public function show($id)
    {
-       //
+       return ControllerFactory::getOne(Product::class,'product.show')($id);
    }
 
    public function store(Request $request)
@@ -34,16 +30,7 @@ class ProductController extends Controller
        ],'product.create')($request);
    }
 
-   public function show($id)
-   {
-       return ControllerFactory::getOne(Product::class,'product.show')($id);
-   }
 
-  
-   public function edit($id,Request $request)
-   {
- 
-   }
 
   
    public function update(Request $request, $id)
@@ -56,7 +43,16 @@ class ProductController extends Controller
 
    public function destroy($id)
    {
- 
        return ControllerFactory::deleteOne(Product::class)($id);
+   }
+
+
+   public function create()
+   {
+       //
+   }
+   public function edit($id,Request $request)
+   {
+ 
    }
 }

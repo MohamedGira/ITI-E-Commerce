@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('package_statuses', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+        Schema::create('product_categories', function (Blueprint $table) {
+            //$table->id();
+            $table->foreignUuid('product_id')->constrained();
+            $table->foreignUuid('category_id')->constrained();
+            $table->primary(['product_id', 'category_id']);	
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('package_statuses');
+        Schema::dropIfExists('product_categories');
     }
 };

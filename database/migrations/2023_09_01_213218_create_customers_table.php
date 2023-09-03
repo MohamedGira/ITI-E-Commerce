@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('customers', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->uuid('id')->primary();
+            $table->foreignUuid('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->string('profile_image')->default('default.jpg');
             $table->string('phone_number')->nullable();
             $table->string('address')->nullable();

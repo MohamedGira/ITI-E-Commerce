@@ -30,8 +30,8 @@
         </ul>
         <div class="flex gap-4">
             <img class="w-10" src="/assets/icon-cart.svg">
-            <img class="rounded-full w-10 h-10" src="Images/{{$userData?->profile_image||'default.jpg'}}">
-        </div>
+{{--             <img class="rounded-full w-10 h-10" src="Images/{{$userData?->profile_image||'default.jpg'}}">
+ --}}        </div>
     </header>
     <!-- Page Content -->
     {{ $slot }}

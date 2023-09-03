@@ -15,7 +15,12 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->uuid('parent_id')->nullable();
+            $table->string('name')->unique();
             $table->timestamps();
+        });
+        Schema::table('categories', function (Blueprint $table) {
+            $table->foreign('parent_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

@@ -5,20 +5,16 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\Customer;
 use App\Models\User;
+use App\Utils;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
-use Illuminate\Support\Facades\File; 
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Schema;
 
-function saveImage($request)
-{
-    $filename = uniqid() . "." . $request->profile_image->extension();
-    $request->profile_image->move(public_path('Images'), $filename);
-    return $filename;
-}
 class ProfileController extends Controller
 {
     /**
@@ -50,18 +46,20 @@ class ProfileController extends Controller
         } catch (Exception $e) {
         }
         if ($request->hasFile('profile_image')) 
-         $newdata['profile_image'] = saveImage($request);
+         $newdata['profile_image'] = Utils::saveImage($request->file('profile_image'));
         
          if (User::where('email', $newdata['email'])->where('id', '!=', $request->user()->id)->count() != 0)
-         return Redirect::route('profile.edit')->with('status', 'Email alrady in use');
-         
-         $request->user()->update($newdata);
+            return Redirect::route('profile.edit')->with('status', 'Email alrady in use');
+         $userFilteredData = Utils::filterObject($newdata, Schema::getColumnListing((new User)->getTable()));
+         $customerFilteredData= Utils::filterObject($newdata, Schema::getColumnListing((new Customer)->getTable()));
+
+         $request->user()->update($userFilteredData);
          $customer = Customer::where(['user_id' => $request->user()->id])->first();
-         
          $old_image=$customer->profile_image;
          if($old_image!='default.jpg'&&$request->hasFile('profile_image'))
          File::delete(public_path('Images/'.$old_image));
-         $customer->update($newdata);
+        
+         $customer->update($customerFilteredData);
          
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -34,5 +36,13 @@ Route::middleware('auth')->group(function () {
 Route::resource('products', ProductController::class)->parameters([
     'products' => 'id'
 ]);
+Route::resource('categories', CategoryController::class)->parameters([
+    'categories' => 'id'
+]);
+Route::resource('product-categories', ProductCategoryController::class)->parameters([
+    'product-categories' => 'id'
+]);
+
+
 
 require __DIR__.'/auth.php';

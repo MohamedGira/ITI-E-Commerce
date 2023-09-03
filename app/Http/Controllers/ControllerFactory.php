@@ -37,7 +37,7 @@ class ControllerFactory
                 $message = 'Created successfuly';
                 return view($returnView, compact('item'), compact('message'));
             } catch (Exception $e) {
-                return response()->json(['message' => 'Validation failed', 'errors' => $e->getMessage()], 400);
+                return response()->json(['message' => 'something went wrong', 'errors' => $e->getMessage()], 400);
             }
         };
     }
@@ -77,7 +77,7 @@ class ControllerFactory
                 $message = 'Updated successfuly';
                 return view($returnView, compact('item'), compact('message'));
             } catch (Exception $e) {
-                return response()->json(['message' => 'Validation failed', 'errors' => $e->getMessage()], 400);
+                return response()->json(['message' => 'something went wrong', 'errors' => $e->getMessage()], 400);
             }
         };
     }
@@ -103,7 +103,7 @@ class ControllerFactory
                 $message = 'Deleted successfuly';
                 return view($returnView, compact('item'), compact('message'));
             } catch (Exception $e) {
-                return response()->json(['message' => 'Validation failed', 'errors' => $e->getMessage()], 400);
+                return response()->json(['message' => 'something went wrong', 'errors' => $e->getMessage()], 400);
             }
         };
     }
@@ -118,7 +118,7 @@ class ControllerFactory
                     return response()->json($items, 200);
                 return view($returnView, compact('items'));
             } catch (Exception $e) {
-                return response()->json(['message' => 'Validation failed', 'errors' => $e->getMessage()], 400);
+                return response()->json(['message' => 'something went wrong', 'errors' => $e->getMessage()], 400);
             }
         };
     }
@@ -137,7 +137,7 @@ class ControllerFactory
                     return response()->json($item, 200);
                 return view($returnView, compact('item'));
             } catch (Exception $e) {
-                return response()->json(['message' => 'Validation failed', 'errors' => $e->getMessage()], 400);
+                return response()->json(['message' => 'something went wrong', 'errors' => $e->getMessage()], 400);
             }
         };
     }
@@ -150,7 +150,7 @@ class ControllerFactory
                     return response()->json($items, 200);
                 return view($returnView, compact('items'));
             } catch (Exception $e) {
-                return response()->json(['message' => 'Validation failed', 'errors' => $e->getMessage()], 400);
+                return response()->json(['message' => 'something went wrong', 'errors' => $e->getMessage()], 400);
             }
         };
     }

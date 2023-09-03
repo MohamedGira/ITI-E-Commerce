@@ -35,16 +35,13 @@ class ProfileController extends Controller
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
         $newdata = $request->except('_token', '_method');
-        try {
-            $request->validate(
-                [
-                    'email' => 'required|email',
-                    'username' => 'reqired',
-                    'phoneNumber' => 'required'
-                ]
-            );
-        } catch (Exception $e) {
-        }
+        $request->validate(
+            [
+                'email' => 'required|email',
+                'username' => 'reqired',
+                'phone_number' => 'required'
+            ]
+        );
         if ($request->hasFile('profile_image')) 
          $newdata['profile_image'] = Utils::saveImage($request->file('profile_image'));
         

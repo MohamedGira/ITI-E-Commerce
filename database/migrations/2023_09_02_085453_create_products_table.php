@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('brand');
             $table->float('original_price');
-            $table->float('discount');
+            $table->float('discount')->default(0);
             $table->timestamps();
         });
     }

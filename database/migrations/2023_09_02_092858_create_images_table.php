@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->bigInteger('item_id')->unsigned();
+            $table->uuid('item_id');
+            $table->string('name_on_disk');
             $table->string('name');
             $table->timestamps();
         });

@@ -1,5 +1,5 @@
 <x-app-layout>
-    <main class="flex flex-col w-full mt-48 gap-12">
+    <main class="flex flex-col w-full mt-36 gap-12">
         <h1 class="uppercase text-center text-xl text-orange-700 kumbh">Search results for: {{ $query }}</h1>
         <div class="p-10 bg-gray-100">
             @if (count($categories) > 0)

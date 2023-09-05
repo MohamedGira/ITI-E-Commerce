@@ -1,6 +1,7 @@
 <x-app-layout>
     <main class="flex flex-col w-full mt-36 gap-12">
         <h1 class="uppercase text-center text-xl text-orange-700 kumbh">{{ $item->name }}</h1>
+        <p class="text-2xl pl-10 text-gray-400 animate-[pulse_5s_ease-in-out_infinite]">{{ $item->description }}</p>
         <div class="p-10 bg-gray-100">
             @if (count($item->subCategories))
                 <h2 class="text-2xl text-gray-500 mb-1">Sub Categories</h2>
@@ -14,7 +15,7 @@
             @endif
             <div class="">
                 <h2 class="text-2xl text-gray-500 mb-1">Products</h2>
-                <ul class="flex flex-start gap-12 menu ">
+                <ul class="flex flex-start gap-12 flex-wrap  ">
                     @php
                         if (!function_exists('getSubCategories')) {
                             function getSubCategories($item)

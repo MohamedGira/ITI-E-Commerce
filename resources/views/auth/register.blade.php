@@ -4,6 +4,7 @@
         <form method="POST" action="{{ route('register') }}"
             class=" mt-16 flex flex-col w-96 gap-4 self-center items-center">
             @csrf
+            <h1 class="font-black text-3xl">Register</h1>
 
             <!-- Name -->
             <div class="w-full">

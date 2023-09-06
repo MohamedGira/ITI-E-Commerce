@@ -45,7 +45,8 @@ Route::resource('product-categories', ProductCategoryController::class)->paramet
 ]);
 Route::get('home', [HomeController::class, 'index'])->name('home');
 Route::get('results', [HomeController::class, 'search'])->name('results');
-Route::get('home/categories/{id}', [HomeController::class, 'viewCategory'])->name('category.details');
+Route::get('categories/{id}', [HomeController::class, 'viewCategory'])->name('category.details');
+Route::get('products/{id}', [HomeController::class, 'viewProduct'])->name('product.details');
 
 
 require __DIR__.'/auth.php';

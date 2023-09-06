@@ -1,3 +1,4 @@
+@props(['item'])
 <x-app-layout>
     <main class="flex flex-col w-full mt-36 gap-12">
         <h1 class="uppercase text-center text-xl text-orange-700 kumbh">{{ $item->name }}</h1>

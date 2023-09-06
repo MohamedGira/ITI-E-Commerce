@@ -1,5 +1,5 @@
 @props(['product'])
-<a href="">
+<a href="{{ route('product.details', $product->id) }}">
     <div class="card w-80 aspect-square bg-gray-100">
         @if (null !=
                 $product->images()->where('name', 'banner')->first())

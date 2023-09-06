@@ -24,5 +24,9 @@ class HomeController extends Controller
     $categories=Category::where('name','like',"%$query%")->get();
     return view('customer.results',compact('query','products','categories'));
    }
+   public function viewProduct($id)
+   {
+    return ControllerFactory::getOne(Product::class,'customer.product')($id);
+   }
 
 }

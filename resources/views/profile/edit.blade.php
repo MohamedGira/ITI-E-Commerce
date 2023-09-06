@@ -5,5 +5,5 @@
         @include('profile.partials.packages-info')
     </div>
 
-    <script src="{{ asset('/build/assets/profile.js') }}"></script>
+    <script src="{{ asset('/scripts/profile.js') }}"></script>
 </x-app-layout>

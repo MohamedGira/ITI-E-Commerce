@@ -19,9 +19,10 @@
     {{--     @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 </head>
 
-<body>
+<body class="h-full">
     <x-myComponents.header  />
     <!-- Page Content -->
+    <script src="{{ asset('/scripts/notify.js') }}"></script>
     {{ $slot }}
     </div>
 </body>

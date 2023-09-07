@@ -16,14 +16,6 @@
     </div>
 
     <div class="flex w-full gap-2">
-        {{-- <div class="flex justify-between w-5/12 rounded-md bg-gray-100 px-2 py-2">
-            <button id="less"
-                class="text-orange-400 font-black  transition-colors hover:bg-gray-200 rounded-full w-5  aspect-square">-</button>
-            <span id="count" class="font-black">1</span>
-            <button
-                id="more"
-                class="text-orange-400 font-black  transition-colors hover:bg-gray-200 rounded-full w-5  aspect-square">+</button>
-        </div> --}}
         <form id='addToCartForm'>
             <input type="hidden" name="product_id" id="product_id" value="{{$product->id}}">
             <button type="submit" id="addToCartBtn" class="p-2 text-xl transition-colors bg-orange-400 w-full text-center text-white rounded-md

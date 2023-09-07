@@ -45,4 +45,6 @@
                 Sign in</button>
         </form>
     </div>
+    <script src="{{ asset('/scripts/notify.js') }}"></script>
+    <script src="{{ asset('/scripts/login.js') }}"></script>
 </x-guest-layout>

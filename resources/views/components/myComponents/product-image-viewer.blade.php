@@ -8,7 +8,7 @@
             @if (null !=
                     $product->images()->where('name', 'banner')->first())
                 <img id="current-image"
-                    class="rounded-xl w-full object-contain h-96 hover:scale-125  duration-400 transition-all"
+                    class="rounded-xl w-full object-contain h-96 hover:scale-105  duration-400 transition-all"
                     src="{{ $product->images()->where('name', 'banner')->first()->name_on_disk }}" alt="">
             @else
                 <img id="current-image" class="rounded-xl w-full" src="/Images/default.png" alt="">

@@ -11,7 +11,7 @@
         <input type="text" placeholder="Search..." class="focus:outline-orange-700 w-full p-1" name="query">
     </form>
     <div class="flex gap-4">
-        <img class="w-10" src="/assets/icon-cart.svg">
+        <a href="{{route('cart')}}"><img class="w-10" src="/assets/icon-cart.svg"></a>
 {{--             <img class="rounded-full w-10 h-10" src="Images/{{$userData?->profile_image||'default.jpg'}}">
 --}}        </div>
 </header>

@@ -23,11 +23,11 @@ class Utils
     {
         $filename = uniqid() . "." . $image->extension();
         $image->move(public_path('Images'), $filename);
-        return $filename;
+        return '/Images/' . $filename;
     }
     public static function deleteImage($image)
     {
-        File::delete(public_path('Images/' . $image));
+        File::delete(public_path($image));
     }
     public static function handleImages($request, $owner_id)
     {
@@ -39,7 +39,7 @@ class Utils
         //handling images upload
         $images = [];
         //make sure to send all images with name "images[]" for this factory method to work correctly.
-
+        $duplicateBanners = [];
         foreach ($request->file() as $key => $input) {
             if (is_array($input)) {
                 foreach ($input as $image) {
@@ -51,6 +51,7 @@ class Utils
                     ];
                 }
             } else {
+                $duplicateBanners =[...$duplicateBanners,...Image::select('id')->where(['item_id' => $owner_id, 'name' => $key])->get()->toArray()];
                 $images[] = [
                     'item_id' => $owner_id,
                     'name' => $key,
@@ -59,8 +60,19 @@ class Utils
                 ];
             }
         }
-        if (!empty($images))
+        if (!empty($images)) {
+            //inserting newImages
             Image::insert($images);
+            //getting old OneFiled Images
+            $q=Image::whereIn('id', $duplicateBanners);
+            $imagesToDelete=$q->get();
+            //deleting from database
+            $q->delete();
+            //deleting from disk
+            foreach ($imagesToDelete as $image) {
+                Utils::deleteImage($image->name_on_disk);
+            }
+        }
     } // t
     public static function handleReturn($returnView, $message, $status)
     {

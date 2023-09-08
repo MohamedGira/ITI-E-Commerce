@@ -23,10 +23,7 @@ class ProfileController extends Controller
     public function edit(Request $request)
     {
         $customer = Customer::where(['user_id' => $request->user()->id])->first();
-        return view('profile.edit', [
-            'user' => $request->user(),
-            'userData' => $customer,
-        ]);
+        return view('profile.edit');
     }
 
     /**
@@ -79,6 +76,6 @@ class ProfileController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return Redirect::to('/');
+        return Redirect::to('/home');
     }
 }

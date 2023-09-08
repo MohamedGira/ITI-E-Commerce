@@ -11,6 +11,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/app.css">
 
     <!-- Scripts -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -23,6 +24,8 @@
         <a href="mailto:mohamedgira0901@gmail.com">Contant us</a>
     </header>
     {{ $slot }}
+    <script src="{{ asset('/scripts/notify.js') }}"></script>
+
 </body>
 
 </html>

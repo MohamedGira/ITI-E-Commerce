@@ -15,7 +15,7 @@
             @if (count($products) > 0)
                 <div class="mt-12">
                     <h2 class="text-2xl text-gray-500 mb-1">Products</h2>
-                    <ul class="flex flex-start gap-12 menu ">
+                    <ul class="flex flex-start gap-12 flex-wrap ">
                         @foreach ($products as $product)
                             <li>
                                 <x-myComponents.product-card :product="$product" />

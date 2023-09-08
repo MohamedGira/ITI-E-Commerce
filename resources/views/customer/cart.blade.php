@@ -4,7 +4,7 @@
         <form action="">
             <div class="grid grid-cols-2">
                 <div class="flex flex-col gap-12 w-full px-12">
-                    <ul id="lst" class="flex flex-col gap-4 overflow-y-auto h-[680px] px-10">
+                    <ul id="lst" class="flex flex-col gap-4 overflow-y-auto h-[480px] px-10">
                         @foreach ($products as $product)
                             <x-myComponents.cart-item-card :product="$product" />
                         @endforeach

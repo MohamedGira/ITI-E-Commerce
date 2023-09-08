@@ -15,6 +15,7 @@
         @endif
     </div>
 
+    @if(Auth::user()?->role!='admin')
     <div class="flex w-full gap-2">
         <form id='addToCartForm'>
             <input type="hidden" name="product_id" id="product_id" value="{{$product->id}}">
@@ -23,4 +24,5 @@
         </form>
         </button>
     </div>
+    @endif
 </div>

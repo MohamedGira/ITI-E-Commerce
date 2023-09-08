@@ -36,3 +36,39 @@
     opacity: 40%;
     border: 2px solid #ea580c;
 }
+
+
+
+@keyframes cooldown {
+    from {
+      width: 100%;
+    }
+  
+    to {
+      width: 0%;
+    }
+}
+.cooldown-1 {
+    animation-name: cooldown;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+.cooldown-2 {
+    animation-name: cooldown;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+.cooldown-3 {
+    animation-name: cooldown;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+.cooldown-4 {
+    animation-name: cooldown;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}

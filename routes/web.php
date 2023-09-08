@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductCategoryController;
@@ -19,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('home');
 });
 
 Route::get('/dashboard', function () {
@@ -50,4 +51,22 @@ Route::get('categories/{id}', [HomeController::class, 'viewCategory'])->name('ca
 Route::get('products/{id}', [HomeController::class, 'viewProduct'])->name('product.details');
 
 
-require __DIR__.'/auth.php';
+
+
+
+
+//admin routes
+Route::middleware(['auth', 'auth.admin'])->group(function () {
+    Route::get('admin/products', [AdminController::class, 'viewProducts'])->name('admin.products');
+    Route::get('admin/categories', [AdminController::class, 'viewCategories'])->name('admin.categories');
+    Route::get('admin/products/create', [ProductController::class, 'create'])->name('admin.products.create');
+    Route::get('admin/categories/create', [CategoryController::class, 'create'])->name('category.create');
+    Route::get('admin/categories/{id}/edit', [CategoryController::class, 'edit'])->name('category.edit');
+    Route::get('admin/product/{id}/edit', [ProductController::class, 'edit'])->name('product.edit');
+    Route::post("/products-categories/many", [ProductCategoryController::class, 'storeMany']);
+    Route::post("/products-categories/put", [ProductCategoryController::class, 'put']);
+});
+
+
+
+require __DIR__ . '/auth.php';

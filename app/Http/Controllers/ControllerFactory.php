@@ -33,7 +33,7 @@ class ControllerFactory
                 Utils::handleImages($request, $item->id);
 
                 if (empty($returnView))
-                    return response()->json(['message' => 'Created successfuly', $item], 201);
+                    return response()->json(['message' => 'Created successfuly', 'item' => $item], 201);
                 $message = 'Created successfuly';
                 return view($returnView, compact('item'), compact('message'));
             } catch (Exception $e) {
@@ -56,22 +56,17 @@ class ControllerFactory
                 $filteredRequest = Utils::filterObject($request->all(), Schema::getColumnListing((new $Class)->getTable()));
                 $item = $Class::find($id);
                 $item->update($filteredRequest);
-                if ($request->hasFile('images')) {
-                    //handling images upload
-                    $images = [];
-                    //make sure to send all images with name "images[]" for this factory method to work correctly.
-                    foreach ($request->file('images') as $image) {
-                        $images[] = ['item_id' => $item->id, 'name' => Utils::saveImage($image)];
-                    }
-                    if (!empty($images))
-                        Image::insert($images);
-                }
-                //images are set, time to delete old ones.
+                Utils::handleImages($request, $item->id);
+
                 //handling images delete again use "deletedImages[]" for this to work correctly
-                if ($request->has('deletedImages'))
-                    foreach ($request->input('deletedImages') as $image) {
-                        Utils::deleteImage($image);
+                if ($request->has('deletedImages')) {
+                    $q=Image::where('item_id', $id)->whereIn('id', $request->input('deletedImages'));
+                    $imagesToDelete=$q->get();
+                    $q->delete();
+                    foreach ($imagesToDelete as $image) {
+                        Utils::deleteImage($image->name_on_disk);
                     }
+                }
                 if (empty($returnView))
                     return response()->json(['message' => 'Updated successfuly', $item], 200);
                 $message = 'Updated successfuly';
@@ -127,8 +122,8 @@ class ControllerFactory
 
         return function ($id) use ($Class, $returnView) {
             try {
-                
-                
+
+
 
                 $item = $Class::find($id);
                 if ($item == null)

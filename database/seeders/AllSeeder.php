@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Image;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
@@ -286,7 +287,7 @@ class AllSeeder extends Seeder
             $categoriesImages[] = [
                 'id' => Str::uuid(),
                 'item_id' => $id,
-                'name' => 'anonymous',
+                'name' => 'banner',
                 'name_on_disk' => '/Images/'.$names[$index]
             ];
         }
@@ -345,7 +346,7 @@ class AllSeeder extends Seeder
         Category::insert($categories);
         Image::insert($allProductImages);
         Image::insert($categoriesImages);
-
+        User::insert(['id' => 'c9c09c9c-7e7e-7e7e-7e7e-7e7e7e7e7534', 'name' => 'admin', 'email' => 'mohamedgira0901@gmail.com','password'=>'123123123','role'=>'admin']);
         ProductCategory::insert($productCategories);
     }
 }

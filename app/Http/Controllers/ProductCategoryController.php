@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\ProductCategory;
+use Illuminate\Contracts\Cache\Store;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ProductCategoryController extends Controller
 {
@@ -31,9 +33,31 @@ class ProductCategoryController extends Controller
          'product_id'=>'required',
          'category_id'=>'required',
         ],'productCategory.create')($request);
+    }   
+    public function storeMany(Request $request)
+    {       
+        $product_id=$request->input('product_id');
+        $categories=$request->input('categories');
+        $product_category=[];
+        foreach($categories as $category)
+        {
+            $product_category[]=[
+                'id'=>Str::uuid(),
+                'product_id'=>$product_id,
+                'category_id'=>$category
+            ];
+        }
+        ProductCategory::insert($product_category);
+        return redirect()->route('home');
+
     }
- 
- 
+    public function put(Request $request)
+    {       
+        $product_id=$request->input('product_id');
+        ProductCategory::where('product_id',$product_id)->delete();
+        $this->StoreMany($request);
+        return response()->json(['message'=>'success'],204);
+    }
  
    
     public function update(Request $request, $id)

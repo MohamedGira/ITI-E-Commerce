@@ -1,5 +1,5 @@
+@props(['customer'])
 <x-app-layout  >
-    
     <div class="flex gap-24 mt-24">
         @include('profile.partials.profile-info')
         @include('profile.partials.packages-info')

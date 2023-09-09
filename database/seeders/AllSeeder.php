@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
+use App\Models\Customer;
 use App\Models\Image;
 use App\Models\Product;
 use App\Models\ProductCategory;
@@ -347,6 +348,10 @@ class AllSeeder extends Seeder
         Image::insert($allProductImages);
         Image::insert($categoriesImages);
         User::insert(['id' => 'c9c09c9c-7e7e-7e7e-7e7e-7e7e7e7e7534', 'name' => 'admin', 'email' => 'mohamedgira0901@gmail.com','password'=>'123123123','role'=>'admin']);
+         Customer::create([
+            'user_id'=>'c9c09c9c-7e7e-7e7e-7e7e-7e7e7e7e7534',
+            'phone_number'=>'+201117230998'
+        ]);
         ProductCategory::insert($productCategories);
     }
 }

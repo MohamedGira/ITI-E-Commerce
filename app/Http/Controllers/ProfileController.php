@@ -22,8 +22,8 @@ class ProfileController extends Controller
      */
     public function edit(Request $request)
     {
-        $customer = Customer::where(['user_id' => $request->user()->id])->first();
-        return view('profile.edit');
+        $customer = Customer::where(['user_id'=>Auth::user()->id])->first();
+        return view('profile.edit' ,compact('customer'));
     }
 
     /**
@@ -50,8 +50,8 @@ class ProfileController extends Controller
          $request->user()->update($userFilteredData);
          $customer = Customer::where(['user_id' => $request->user()->id])->first();
          $old_image=$customer->profile_image;
-         if($old_image!='default.jpg'&&$request->hasFile('profile_image'))
-         File::delete(public_path('Images/'.$old_image));
+         if($old_image!='/Images/default.jpg'&&$request->hasFile('profile_image'))
+         File::delete(public_path($old_image));
         
          $customer->update($customerFilteredData);
          

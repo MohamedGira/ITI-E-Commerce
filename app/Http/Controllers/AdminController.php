@@ -27,7 +27,7 @@ class AdminController extends Controller
     $query=$request->input('query');
     $products=Product::where('name','like',"%$query%")->get();
     $categories=Category::where('name','like',"%$query%")->get();
-    return view('customer.results',compact('query','products','categories'));
+    return view('admin.results',compact('query','products','categories'));
    }
    public function cart(Request $request)
    {

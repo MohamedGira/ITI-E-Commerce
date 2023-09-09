@@ -2,7 +2,7 @@
 <a href="{{ route('product.details', $product->id) }}">
     <div class="card w-80 aspect-square bg-gray-100">
         <x-myComponents.product-banner :product="$product" :class="'border-[16px] border-white h-56 hover:scale-[1.01] hover:-translate-y-1 duration-400 transition-all object-cover min-w-[320px]'"/>
-        <h1 class="text-gray-500 text-lg font-serif font-thin">
+        <h1 class="text-gray-500 text-lg ">
             {{ $product->name }}</h1>
         <p class="text-sm text-gray-400">{{ $product->brand }}</p>
         @if ($product->discount == 0)

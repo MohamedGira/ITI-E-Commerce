@@ -1,5 +1,6 @@
+@props(['customer'])
 <div class="flex flex-col w-1/4 text-center bg-gray-200 rounded-3xl items-center mt-48 mx-10 ">
-    <img id="profileImage" src="/Images/{{ Auth::user()?->customer->profile_image ?? 'default.jpg' }}" alt=""
+    <img id="profileImage" src="{{ $customer->profile_image ?? '/Images/default.jpg' }}" alt=""
         class="rounded-full w-1/2 -translate-y-1/2 border-white border-4 transition-all cursor-pointer object-cover	aspect-square">
     <div id="data" class="-translate-y-1/2 flex flex-col gap-4">
         <x-input-error class="mt-2" :messages="$errors->get('profile_image')" />
@@ -15,7 +16,7 @@
 
         </div>
         <div>
-            <h1 class="text-2xl text-grey-500">{{ Auth::user()->customer->phone_number }}</h1>
+            <h1 class="text-2xl text-grey-500">{{ $customer->phone_number }}</h1>
             <x-input-error class="mt-2" :messages="$errors->get('phone_number')" />
 
         </div>
@@ -36,7 +37,7 @@
         </div>
         <div>
             <input id="phone_number" type="tel" name="phone_number" class=" rounded-md focus:outline-orange-600 w-full text-2xl text-grey-500 text-center"
-                value="{{ Auth::user()->customer->phone_number }}" required />
+                value="{{ $customer->phone_number }}" required />
         </div>
         <div>
             <input id="imageInput" name="profile_image"type="file" accept="image/png, image/jpeg" class="hidden" value="+201117230998"

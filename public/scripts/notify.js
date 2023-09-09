@@ -9,15 +9,15 @@ function notify(message, color) {
     let list = document.getElementById("notification-list");
 
     let notification = `
-<div id="${uniq}" class="notification rounded-t-md pt-2  text-xl flex flex-col justify-between " style="color:${color}; border:1px solid ${color}" >
-    <p class="mx-2">${message}</p>
-    <div class="w-full bg-gray-200 h-1 mt-1 absolue bottom-0">
-        <div id="${uniq}-progress" class="bg-${color}-600  h-1  cooldown-3">
+        <div id="${uniq}" class="notification rounded-t-md pt-2  text-xl flex flex-col justify-between " style="color:${color}; border:1px solid ${color}" >
+            <p class="mx-2">${message}</p>
+            <div class="w-full bg-gray-200 h-1 mt-1 absolue bottom-0">
+                <div id="${uniq}-progress" class="bg-${color}-600  h-1  cooldown-3">
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-`;
-    list.innerHTML += notification;
+        `;
+    list.insertAdjacentHTML('beforeend', notification);;
    
     setTimeout(() => {
         document.getElementById(uniq).remove();

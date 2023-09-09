@@ -63,6 +63,7 @@ Route::middleware(['auth', 'auth.admin'])->group(function () {
     Route::get('admin/categories/create', [CategoryController::class, 'create'])->name('category.create');
     Route::get('admin/categories/{id}/edit', [CategoryController::class, 'edit'])->name('category.edit');
     Route::get('admin/product/{id}/edit', [ProductController::class, 'edit'])->name('product.edit');
+    Route::get('admin/results', [AdminController::class, 'search'])->name('admin.results');
     Route::post("/products-categories/many", [ProductCategoryController::class, 'storeMany']);
     Route::post("/products-categories/put", [ProductCategoryController::class, 'put']);
 });

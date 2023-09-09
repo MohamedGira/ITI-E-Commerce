@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('customers', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
-            $table->string('profile_image')->default('default.jpg');
+            $table->string('profile_image')->default('/Images/default.jpg');
             $table->string('phone_number')->nullable();
             $table->string('address')->nullable();
             $table->timestamps();

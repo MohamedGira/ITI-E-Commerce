@@ -15,7 +15,7 @@
             <label for="email" class="text-grey-700">Email</label>
             <br>
             <input class="w-full border rounded-md p-1 focus:border-orange-400 focus:outline-none" type="email"
-                name="email" id="email" placeholder="Enter your Email" value="{{old('email', $request->email)}}">
+                name="email" id="email" placeholder="Enter your Email" value="{{old('email', $request->email)}}" readonly>
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 

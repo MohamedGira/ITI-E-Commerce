@@ -57,15 +57,22 @@ Route::get('products/{id}', [HomeController::class, 'viewProduct'])->name('produ
 
 //admin routes
 Route::middleware(['auth', 'auth.admin'])->group(function () {
-    Route::get('admin/products', [AdminController::class, 'viewProducts'])->name('admin.products');
-    Route::get('admin/categories', [AdminController::class, 'viewCategories'])->name('admin.categories');
-    Route::get('admin/products/create', [ProductController::class, 'create'])->name('admin.products.create');
-    Route::get('admin/categories/create', [CategoryController::class, 'create'])->name('category.create');
-    Route::get('admin/categories/{id}/edit', [CategoryController::class, 'edit'])->name('category.edit');
-    Route::get('admin/product/{id}/edit', [ProductController::class, 'edit'])->name('product.edit');
-    Route::get('admin/results', [AdminController::class, 'search'])->name('admin.results');
+    //C views
+    Route::get('/admin/products/create', [ProductController::class, 'create'])->name('product.create');
+    Route::get('/admin/categories/create', [CategoryController::class, 'create'])->name('category.create');
+    //R views
+    Route::get('/admin/products', [AdminController::class, 'viewProducts'])->name('admin.products');
+    Route::get('/admin/categories', [AdminController::class, 'viewCategories'])->name('admin.categories');
+    Route::get('/admin/results', [AdminController::class, 'search'])->name('admin.results');
+    //U views
+    Route::get('/admin/categories/{id}/edit', [CategoryController::class, 'edit'])->name('category.edit');
+    Route::get('/admin/product/{id}/edit', [ProductController::class, 'edit'])->name('product.edit');
+    //U controllers
     Route::post("/products-categories/many", [ProductCategoryController::class, 'storeMany']);
     Route::post("/products-categories/put", [ProductCategoryController::class, 'put']);
+    // D controllers
+    Route::delete('/admin/categories/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
+    Route::delete('/admin/products/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
 });
 
 

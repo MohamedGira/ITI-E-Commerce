@@ -43,10 +43,9 @@
                     <a href="{{ route('category.edit', $category->id) }}">Edit</a>
                 </td>
                 <td class="px-6 py-4">
-                    <form action="post">
+                    <form method="POST" action="{{route('category.destroy',['id'=>$category->id])}}">
                         @method('DELETE')
                         @csrf
-                        <input type="hidden" name="id" value="{{ $category->id }}">
                         <button>delete</button>
                     </form>
                 </td>

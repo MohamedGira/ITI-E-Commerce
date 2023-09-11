@@ -46,9 +46,9 @@
             <a href="{{ route('home') }}">
                 <li>Home</li>
             </a>
-            <a href="">
+            {{--             <a href="">
                 <li>Orders</li>
-            </a>
+            </a> --}}
             @if (Auth::user())
                 <a href="{{ route('profile.edit') }}">
                     <li>Profile</li>

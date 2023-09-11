@@ -22,6 +22,7 @@
     <x-myComponents.header  />
     <!-- Page Content -->
     <script src="{{ asset('/scripts/notify.js') }}"></script>
+    <script src="{{ asset('/scripts/notifyGlob.js') }}"></script>
     {{ $slot }}
     </div>
 </body>

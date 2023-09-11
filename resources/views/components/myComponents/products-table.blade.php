@@ -41,10 +41,9 @@
                     <a href="{{route('product.edit',$product->id)}}">Edit</a>
                 </td>
                 <td class="px-6 py-4">
-                    <form method="POST">
+                    <form method="POST" action="{{route('product.destroy',['id'=>$product->id])}}">
                         @method('DELETE')
                         @csrf
-                        <input type="hidden" name="id" value="{{$product->id}}">
                         <button>delete</button>
                     </form>
                 </td>

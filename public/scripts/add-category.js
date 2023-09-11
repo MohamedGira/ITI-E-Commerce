@@ -16,8 +16,7 @@ form.addEventListener("submit", async (e) => {
     let data = new FormData(form);
     let res = await fetch("/categories", {
         method: "POST",
-        headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({ data }),
+        body: data ,
     });
     if (res.status.toString().startsWith("2")) {
         notify("Category added Successfully.", "green");

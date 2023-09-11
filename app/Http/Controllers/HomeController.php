@@ -26,7 +26,7 @@ class HomeController extends Controller
    }
    public function cart(Request $request)
    {
-   $cart=json_decode(($request->cookie('cart')));
+   $cart=json_decode(($request->cookie('cart')))??[];
    $products=Product::whereIn('id',$cart)->get();
    return view('customer.cart',compact('products'));
    }

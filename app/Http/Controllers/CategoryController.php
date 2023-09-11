@@ -51,7 +51,7 @@ class CategoryController extends Controller
     }
 
     public function destroy($id)
-    {
+    {   
         return ControllerFactory::deleteOne(Category::class)($id);
     }
 

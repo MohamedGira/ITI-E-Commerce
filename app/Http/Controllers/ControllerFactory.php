@@ -94,7 +94,7 @@ class ControllerFactory
                     Utils::deleteImage($image->name_on_disk);
                 }
                 if (empty($returnView))
-                    return response()->json(['message' => 'Deleted successfuly'], 204); //btw 204 will not return any content
+                    return redirect()->back()->with('success', 'Deleted successfuly');
                 $message = 'Deleted successfuly';
                 return view($returnView, compact('item'), compact('message'));
             } catch (Exception $e) {
